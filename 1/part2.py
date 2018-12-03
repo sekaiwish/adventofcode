@@ -1,15 +1,15 @@
-frequency = 0
-reachedFrequencies = []
-duplicateFound = False
-with open("input", "r") as input:
-    for line in input:
-        if line[0] == "+":
-            frequency += int(line[1:-1])
+frequencies = open("input", "r").read().strip().split("\n")
+total_frequency = 0
+previous_freqs = []
+dupe_found = False
+while dupe_found is False:
+    for frequency in frequencies:
+        if frequency.startswith("+"):
+            total_frequency += int(frequency[1:])
         else:
-            frequency -= int(line[1:-1])
-        if duplicateFound == False:
-            if frequency in reachedFrequencies:
-                duplicateFound = True
-            else:
-                reachedFrequencies.append(frequency)
-    print("No duplicate found")
+            total_frequency -= int(frequency[1:])
+        if total_frequency in previous_freqs:
+            print("Found duplicate", total_frequency)
+            dupe_found = True
+            break
+        previous_freqs.append(total_frequency)
