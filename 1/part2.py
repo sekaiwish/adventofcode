@@ -3,10 +3,7 @@ total_frequency = 0
 previous_freqs = {0}
 while True:
     for frequency in frequencies:
-        if frequency.startswith("+"):
-            total_frequency += int(frequency[1:])
-        else:
-            total_frequency -= int(frequency[1:])
+        total_frequency += int(frequency)
         if total_frequency in previous_freqs:
             print(f"Duplicate frequency: {total_frequency}")
             exit()
