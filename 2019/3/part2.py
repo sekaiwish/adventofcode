@@ -1,12 +1,8 @@
 a = open("input","r").read().strip().split("\n")
 a[0] = a[0].split(",")
 a[1] = a[1].split(",")
-b = []
-c = []
-d = []
-e = []
-cx = 0
-cy = 0
+b, c, d = [], [], []
+cx, cy = 0, 0
 for x in a[0]:
     for y in range(0, int(x[1:])):
         if x[:1] == "R":
@@ -45,14 +41,7 @@ for x in a[1]:
         cx -= int(x[1:])
     elif x[:1] == "D":
         cy -= int(x[1:])
-for x in b:
-    if x in c:
-        d.append(x)
-for x in d:
-    x = x.split(",")
-    if int(x[0]) < 0:
-        x[0] = int(x[0]) * -1
-    if int(x[1]) < 0:
-        x[1] = int(x[1]) * -1
-    e.append(int(x[0]) + int(x[1]))
-print(min(e[1:]))
+for x in range(0, len(b)):
+    if b[x] in c:
+        d.append(b.index(b[x]) + c.index(b[x]))
+print(min(d[1:]))
