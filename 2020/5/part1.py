@@ -9,9 +9,7 @@ def calc_bits(raw):
     return result
 ids = []
 for seat in data:
-    raw = seat[:7][::-1]
-    row = calc_bits(raw)
-    raw = seat[7:][::-1]
-    column = calc_bits(raw)
+    row = calc_bits(seat[:7][::-1])
+    column = calc_bits(seat[7:][::-1])
     ids.append(row * 8 + column)
 print(max(ids))
