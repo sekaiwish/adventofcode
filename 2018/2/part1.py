@@ -6,5 +6,5 @@ for line in data:
     if 2 in countdict.values():
         c2 += 1
     if 3 in countdict.values():
-        c3 += 1
+        c3 += 1; continue
 print(c2 * c3)
